@@ -1,13 +1,14 @@
 README:
 
-The point of this article is to create the ability to log successful bitcoin transactions on the
+The point of this repo is to create the ability to log successful bitcoin transactions on the
 bitcoin network directly to a datastore of your choice as opposed to logging to the bitcoin blockchain.
 As the code progresses you will be able to just create a logger in modular fashion to log to your own datastore.
 
 Datastores I'm planning to log to:
-1. DynamoDB
-2. MySQL
-3. Elasticsearch
+
+* DynamoDB
+* MySQL
+* Elasticsearch
 
 This code makes use of the wonderful full bitcoin node written in Go: btcd, you can read more about that here.
 https://github.com/btcsuite/btcd
