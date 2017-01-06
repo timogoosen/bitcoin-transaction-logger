@@ -2,6 +2,7 @@ package main
 
   import(
     "io/ioutil"
+    "os"
     "log"
     "path/filepath"
     "time"
@@ -54,14 +55,17 @@ package main
           // not long-lived, the connection will be closed as soon as the program
           // exits.
 
-          //rpcuser=0T3QrrHZZYFmJMqi2gkVHlkilV8=
-          //rpcpass=D0EjPmwxAiSvMHZ59irNz4HWSXI=
+
+
+          rpc_user := os.Getenv("RPC_USER")
+          rpc_password := os.Getenv("RPC_PASS")
+          // Catch and check for error later on
 
           connCfg := &btcrpcclient.ConnConfig{
                   Host:         "localhost:8334",
                   Endpoint:     "ws",
-                  User:         "587e5a3af2",
-                  Pass:         "PoWLVsQgqSzhbwjDoCUJ",
+                  User:         rpc_user,
+                  Pass:         rpc_password,
                   Certificates: certs,
           }
           client, err := btcrpcclient.New(connCfg, &ntfnHandlers)
@@ -78,7 +82,7 @@ package main
           */
 
         // Register for transaction accepted notifications.
-        if err2 := client.NotifyNewTransactions(false); err != nil {
+        if err2 := client.NotifyNewTransactions(false); err2 != nil {
           log.Fatal(err2)
         }
         log.Println("NotifyNewTransactions: Registration Completed")
