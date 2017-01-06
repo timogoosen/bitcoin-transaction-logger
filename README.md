@@ -26,3 +26,17 @@ I got some help with starting finding a point to start this code on the IRC chan
 12:34 <@davec> you can do whatever you like with the data then
 ...
 </pre>
+
+
+To run export following environment variables and run:
+
+<pre>
+
+$ export RPC_USER="someusername"
+
+$ export RPC_PASS="someveryrandompassword"
+
+$ go run main.go
+
+
+</pre>
